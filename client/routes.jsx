@@ -26,16 +26,23 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+        require.ensure([], (require) => {
+          cb(
+            null,
+            require('./modules/Post/pages/PostListPage/PostListPage').default
+          );
         });
       }}
     />
     <Route
       path="/posts/:slug-:cuid"
       getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+        require.ensure([], (require) => {
+          cb(
+            null,
+            require('./modules/Post/pages/PostDetailPage/PostDetailPage')
+              .default
+          );
         });
       }}
     />
